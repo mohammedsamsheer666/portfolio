@@ -28,22 +28,32 @@ function Contact() {
             I’m open to internships, freelance work, and AI/ML opportunities.
           </p>
 
-          {/* CONTACT DETAILS */}
-          <div className="space-y-4">
+          {/* EMAIL */}
+          <a
+            href="mailto:mohammedsamsheer39@gmail.com"
+            className="flex items-center gap-3 p-4 bg-slate-900 border border-white/10 rounded-xl
+                       hover:scale-105 hover:border-blue-500 transition duration-300 cursor-pointer"
+          >
+            <FaEnvelope className="text-blue-400" />
+            <span>Email: mohammedsamsheer39@gmail.com</span>
+          </a>
 
-            <div className="p-4 bg-slate-900 border border-white/10 rounded-xl">
-              📧 mohammedsamsheer39@gmail.com
-            </div>
+          {/* PHONE */}
+          <a
+            href="tel:+919746758733"
+            className="flex items-center gap-3 p-4 bg-slate-900 border border-white/10 rounded-xl
+                       hover:scale-105 hover:border-blue-500 transition duration-300 cursor-pointer"
+          >
+            <FaPhone className="text-blue-400" />
+            <span>Phone: +91 9746758733</span>
+          </a>
 
-            <div className="p-4 bg-slate-900 border border-white/10 rounded-xl flex items-center gap-2">
-              <FaPhone className="text-blue-400" />
-              +91 9746758733
-            </div>
-
-            <div className="p-4 bg-slate-900 border border-white/10 rounded-xl">
-              📍 Kerala, India
-            </div>
-
+          {/* LOCATION (NOT CLICKABLE) */}
+          <div
+            className="flex items-center gap-3 p-4 bg-slate-900 border border-white/10 rounded-xl
+                       hover:scale-105 hover:border-blue-500 transition duration-300"
+          >
+            <span>📍 Kerala, India</span>
           </div>
 
           {/* SOCIAL ICONS */}
@@ -52,6 +62,7 @@ function Contact() {
             <a
               href="https://github.com/mohammedsamsheer666"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-blue-400 transition"
             >
               <FaGithub />
@@ -60,18 +71,17 @@ function Contact() {
             <a
               href="https://www.linkedin.com/in/mohammed-samsheer-40a6583aa"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-blue-400 transition"
             >
               <FaLinkedin />
             </a>
 
-            {/* FIXED EMAIL LINK */}
             <a
               href="mailto:mohammedsamsheer39@gmail.com"
-              className="flex items-center gap-2 hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition"
             >
               <FaEnvelope />
-              <span className="text-sm">Email Me</span>
             </a>
 
           </div>
