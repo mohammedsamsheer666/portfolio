@@ -17,103 +17,81 @@ function App() {
 
       {/* ================= HERO SECTION ================= */}
       <section
-  id="home"
-  className="min-h-screen relative flex items-center justify-center bg-black text-white px-6 overflow-hidden"
->
+        id="home"
+        className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white flex items-center justify-center px-6"
+      >
+        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
 
-  {/* BACKGROUND GLOW */}
-  <div className="absolute w-[600px] h-[600px] bg-blue-600 rounded-full blur-[200px] opacity-30 top-[-200px] left-[-200px]"></div>
-  <div className="absolute w-[500px] h-[500px] bg-purple-600 rounded-full blur-[180px] opacity-20 bottom-[-200px] right-[-200px]"></div>
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-blue-400 uppercase tracking-[5px] font-semibold">
+              Welcome To My Portfolio
+            </p>
 
-  <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center z-10">
+            <h1 className="text-5xl md:text-7xl font-extrabold mt-4 leading-tight">
+              Mohammed <br />
+              <span className="text-blue-400">Samsheer</span>
+            </h1>
 
-    {/* LEFT TEXT */}
-    <div className="space-y-6">
+            <p className="mt-6 text-2xl text-gray-300">
+              Bachelor of Computer Applications (BCA) Student
+            </p>
 
-      <p className="text-blue-400 tracking-[6px] uppercase text-xs">
-        AI Engineer • UI/UX Developer
-      </p>
+            <p className="mt-4 text-gray-400 leading-8 text-lg max-w-xl">
+              Passionate about Artificial Intelligence, Python, Machine
+              Learning, Retrieval-Augmented Generation (RAG), React and
+              building modern AI applications with excellent UI/UX.
+            </p>
 
-      <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-        Mohammed <br /> Samsheer
-      </h1>
+            {/* BUTTONS */}
+            <div className="mt-10 flex flex-wrap gap-5">
 
-      <p className="text-xl text-gray-300">
-        Bachelor of Computer Applications (BCA) Student
-        <span className="text-blue-400"> | Future AI Engineer</span>
-      </p>
+              <a
+                href="#projects"
+                className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 hover:scale-105 transition duration-300 shadow-lg"
+              >
+                View Projects
+              </a>
 
-      <p className="text-gray-400 leading-relaxed max-w-xl">
-        I build modern AI-powered applications and clean UI/UX designs using React,
-        Tailwind CSS, and machine learning technologies. Passionate about solving real-world problems.
-      </p>
+              <a
+                href="/samsheer.cv.pdf"
+                download="Mohammed_Samsheer_Resume.pdf"
+                className="px-8 py-3 rounded-xl border border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 transition duration-300"
+              >
+                Download Resume
+              </a>
 
-      {/* BUTTONS */}
-      <div className="flex gap-5 flex-wrap pt-4">
+            </div>
+          </motion.div>
 
-        <a
-          href="#projects"
-          className="px-7 py-3 bg-blue-600 rounded-full hover:scale-105 transition shadow-lg hover:shadow-blue-500/40"
-        >
-          Explore Projects
-        </a>
+          {/* RIGHT CONTENT */}
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="relative">
 
-        <a
-          href="#contact"
-          className="px-7 py-3 border border-white/20 rounded-full hover:bg-white/10 transition"
-        >
-          Contact Me
-        </a>
+              {/* Glow */}
+              <div className="absolute -inset-4 bg-blue-500 rounded-full blur-3xl opacity-30"></div>
 
-      </div>
+              {/* Profile */}
+              <img
+                src={profile}
+                alt="Mohammed Samsheer"
+                className="relative w-80 h-80 md:w-96 md:h-96 rounded-full object-cover border-4 border-blue-500 shadow-2xl hover:scale-105 transition duration-500"
+              />
 
-      {/* STATS */}
-      <div className="flex gap-8 pt-8 text-sm text-gray-400">
-
-        <div>
-          <p className="text-white text-xl font-bold">2+</p>
-          Projects
-        </div>
-
-        <div>
-          <p className="text-white text-xl font-bold">AI</p>
-          Focus
-        </div>
-
-        <div>
-          <p className="text-white text-xl font-bold">2026</p>
-          Graduate
-        </div>
-
-      </div>
-
-    </div>
-
-    {/* RIGHT IMAGE */}
-    <div className="flex justify-center">
-
-      <div className="relative">
-
-        {/* rotating glow ring */}
-        <div className="absolute w-80 h-80 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-
-        {/* IMAGE CARD */}
-        <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border border-white/10 shadow-2xl hover:scale-105 transition duration-500">
-
-          <img
-            src={profile}
-            alt="profile"
-            className="w-full h-full object-cover"
-          />
+            </div>
+          </motion.div>
 
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* ================= OTHER SECTIONS ================= */}
       <About />

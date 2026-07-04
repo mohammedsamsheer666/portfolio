@@ -1,23 +1,55 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaPhone,
+} from "react-icons/fa";
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_g3v5uac",
+        "template_qet5b6u",
+        form.current,
+        "GERzShOX99QB4Q1Mo"
+      )
+      .then(
+        () => {
+          alert("✅ Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("❌ Failed to send message.");
+          console.log(error);
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
       className="py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white px-6"
     >
-      {/* TITLE */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-blue-400">Contact Me</h2>
+        <h2 className="text-4xl font-bold text-blue-400">
+          Contact Me
+        </h2>
+
         <p className="text-gray-400 mt-3">
           Let’s build something amazing together 🚀
         </p>
       </div>
 
-      {/* GRID */}
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
 
-        {/* LEFT SIDE */}
+        {/* Left Side */}
         <div className="space-y-6">
 
           <h3 className="text-2xl font-semibold">
@@ -25,39 +57,34 @@ function Contact() {
           </h3>
 
           <p className="text-gray-400 leading-relaxed">
-            I’m open to internships, freelance work, and AI/ML opportunities.
+            I'm open to internships, freelance work, and AI/ML opportunities.
           </p>
 
-          {/* EMAIL */}
+          {/* Email */}
           <a
             href="mailto:mohammedsamsheer39@gmail.com"
-            className="flex items-center gap-3 p-4 bg-slate-900 border border-white/10 rounded-xl
-                       hover:scale-105 hover:border-blue-500 transition duration-300 cursor-pointer"
+            className="flex items-center gap-3 p-4 bg-slate-900 rounded-xl border border-white/10 hover:border-blue-500 hover:scale-105 transition"
           >
-            <FaEnvelope className="text-blue-400" />
-            <span>Email: mohammedsamsheer39@gmail.com</span>
+            <FaEnvelope className="text-blue-400 text-xl" />
+            <span>mohammedsamsheer39@gmail.com</span>
           </a>
 
-          {/* PHONE */}
+          {/* Phone */}
           <a
             href="tel:+919746758733"
-            className="flex items-center gap-3 p-4 bg-slate-900 border border-white/10 rounded-xl
-                       hover:scale-105 hover:border-blue-500 transition duration-300 cursor-pointer"
+            className="flex items-center gap-3 p-4 bg-slate-900 rounded-xl border border-white/10 hover:border-blue-500 hover:scale-105 transition"
           >
-            <FaPhone className="text-blue-400" />
-            <span>Phone: +91 9746758733</span>
+            <FaPhone className="text-blue-400 text-xl" />
+            <span>+91 9746758733</span>
           </a>
 
-          {/* LOCATION (NOT CLICKABLE) */}
-          <div
-            className="flex items-center gap-3 p-4 bg-slate-900 border border-white/10 rounded-xl
-                       hover:scale-105 hover:border-blue-500 transition duration-300"
-          >
-            <span>📍 Kerala, India</span>
+          {/* Location */}
+          <div className="flex items-center gap-3 p-4 bg-slate-900 rounded-xl border border-white/10 hover:border-blue-500 hover:scale-105 transition">
+            📍 Kerala, India
           </div>
 
-          {/* SOCIAL ICONS */}
-          <div className="flex gap-6 text-2xl mt-6">
+          {/* Social Icons */}
+          <div className="flex gap-6 text-3xl pt-4">
 
             <a
               href="https://github.com/mohammedsamsheer666"
@@ -88,32 +115,42 @@ function Contact() {
 
         </div>
 
-        {/* RIGHT FORM */}
-        <div className="bg-slate-900 border border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-blue-500/20 transition">
+        {/* Right Side */}
+        <div className="bg-slate-900 p-8 rounded-2xl border border-white/10 shadow-xl">
 
-          <form className="space-y-5">
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="space-y-5"
+          >
 
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
-              className="w-full p-3 rounded-lg bg-slate-800 border border-white/10 focus:outline-none focus:border-blue-500"
+              required
+              className="w-full p-3 rounded-lg bg-slate-800 border border-white/10 focus:border-blue-500 focus:outline-none"
             />
 
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
-              className="w-full p-3 rounded-lg bg-slate-800 border border-white/10 focus:outline-none focus:border-blue-500"
+              required
+              className="w-full p-3 rounded-lg bg-slate-800 border border-white/10 focus:border-blue-500 focus:outline-none"
             />
 
             <textarea
+              name="message"
               rows="5"
               placeholder="Your Message"
-              className="w-full p-3 rounded-lg bg-slate-800 border border-white/10 focus:outline-none focus:border-blue-500"
+              required
+              className="w-full p-3 rounded-lg bg-slate-800 border border-white/10 focus:border-blue-500 focus:outline-none"
             ></textarea>
 
             <button
               type="submit"
-              className="w-full py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition font-semibold"
+              className="w-full bg-blue-600 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
             >
               Send Message
             </button>
